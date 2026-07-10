@@ -1,4 +1,4 @@
-# sim-learn-stop
+# A Sim-Learnheuristic Algorithm for the Stochastic and Context-Aware Team Orienteering Problem
 A Sim-Learnheuristic framework for solving the Stochastic and Context-Aware Team Orienteering Problem by integrating metaheuristic optimization, Monte Carlo simulation, and machine learning.
 
 This repository contains the implementation of a Sim-Learnheuristic framework for the Stochastic and Context-Aware Team Orienteering Problem.
