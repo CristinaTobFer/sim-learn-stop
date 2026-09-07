@@ -1,0 +1,5 @@
+scikit-learn==1.7.0
+scikit-learn-extra==0.3.0
+numpy==1.26.4
+pandas==2.3.0
+setuptools==80.9.0
