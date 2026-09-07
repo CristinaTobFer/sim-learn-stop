@@ -1,0 +1,315 @@
+--------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 4.4.0.f55adc4
+# Copyright (C) 2010-2025
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: C:/Program Files/R/R-4.5.2/library/irace
+# called with: --scenario scenario.txt --parallel 16
+# 2026-02-11 19:07:14 CET: Reading parameter file 'C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/PARAME~1.TXT'.
+# --- Parameters Hierarchy ---
+          Parameter Level        Depends.on
+1             alpha     1             alpha
+2         max_depth     1         max_depth
+3     learning_rate     1     learning_rate
+4          max_iter     1          max_iter
+5 l2_regularization     1 l2_regularization
+# ------------------------
+List of 5
+ $ alpha            :List of 9
+  ..$ name        : chr "alpha"
+  ..$ type        : chr "r"
+  ..$ domain      : num [1:2] 0 1
+  ..$ label       : chr "--alpha "
+  ..$ is_dependent: logi FALSE
+  ..$ isFixed     : logi FALSE
+  ..$ transform   : chr ""
+  ..$ condition   : logi TRUE
+  ..$ digits      : int 4
+  ..- attr(*, "class")= chr [1:3] "ParamReal" "Parameter" "list"
+ $ max_depth        :List of 8
+  ..$ name        : chr "max_depth"
+  ..$ type        : chr "i"
+  ..$ domain      : int [1:2] 3 10
+  ..$ label       : chr "--max_depth "
+  ..$ is_dependent: logi FALSE
+  ..$ isFixed     : logi FALSE
+  ..$ transform   : chr ""
+  ..$ condition   : logi TRUE
+  ..- attr(*, "class")= chr [1:3] "ParamInt" "Parameter" "list"
+ $ learning_rate    :List of 9
+  ..$ name        : chr "learning_rate"
+  ..$ type        : chr "r"
+  ..$ domain      : num [1:2] 0.01 0.3
+  ..$ label       : chr "--learning_rate "
+  ..$ is_dependent: logi FALSE
+  ..$ isFixed     : logi FALSE
+  ..$ transform   : chr ""
+  ..$ condition   : logi TRUE
+  ..$ digits      : int 4
+  ..- attr(*, "class")= chr [1:3] "ParamReal" "Parameter" "list"
+ $ max_iter         :List of 8
+  ..$ name        : chr "max_iter"
+  ..$ type        : chr "i"
+  ..$ domain      : int [1:2] 100 500
+  ..$ label       : chr "--max_iter "
+  ..$ is_dependent: logi FALSE
+  ..$ isFixed     : logi FALSE
+  ..$ transform   : chr ""
+  ..$ condition   : logi TRUE
+  ..- attr(*, "class")= chr [1:3] "ParamInt" "Parameter" "list"
+ $ l2_regularization:List of 9
+  ..$ name        : chr "l2_regularization"
+  ..$ type        : chr "r"
+  ..$ domain      : num [1:2] 0 2
+  ..$ label       : chr "--l2_regularization "
+  ..$ is_dependent: logi FALSE
+  ..$ isFixed     : logi FALSE
+  ..$ transform   : chr ""
+  ..$ condition   : logi TRUE
+  ..$ digits      : int 4
+  ..- attr(*, "class")= chr [1:3] "ParamReal" "Parameter" "list"
+Forbidden:
+NULL
+# 2026-02-11 19:07:14 CET: Parameters have been read
+## irace scenario:
+scenarioFile = "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/scenario.txt"
+execDir = "C:/Users/CristinaTobarFernánd/Desktop/DOCTORADO/Artículos_Realizados/3-TOPsimlearheuristic/TeamOriented/tuning"
+parameterFile = "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/PARAME~1.TXT"
+parameters = <environment>
+initConfigurations = NULL
+configurationsFile = ""
+logFile = "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/irace.log"
+recoveryFile = ""
+instances = c("C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/Instances/p1.3.k.txt", "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/Instances/p2.3.g.txt", "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/Instances/p3.2.j.txt")
+trainInstancesDir = "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/Instances"
+trainInstancesFile = ""
+sampleInstances = TRUE
+testInstancesDir = ""
+testInstancesFile = ""
+testInstances = NULL
+testNbElites = 1L
+testIterationElites = FALSE
+testType = "friedman"
+firstTest = 5L
+blockSize = 1L
+eachTest = 1L
+targetRunner = "C:/Users/CRISTI~1/Desktop/DOCTOR~1/ARTCUL~1/3-TOPS~1/TEAMOR~1/tuning/TARGET~1.BAT"
+targetRunnerLauncher = ""
+targetCmdline = "{configurationID} {instanceID} {seed} {instance} {bound} {targetRunnerArgs}"
+targetRunnerRetries = 0L
+targetRunnerTimeout = 0L
+targetRunnerData = ""
+targetRunnerParallel = NULL
+targetEvaluator = NULL
+deterministic = FALSE
+maxExperiments = 60L
+minExperiments = NA_character_
+maxTime = 0L
+budgetEstimation = 0.05
+minMeasurableTime = 0.01
+parallel = 16L
+loadBalancing = TRUE
+mpi = FALSE
+batchmode = "0"
+quiet = FALSE
+debugLevel = 2L
+seed = NA_character_
+softRestart = TRUE
+softRestartThreshold = 1e-04
+elitist = TRUE
+elitistNewInstances = 1L
+elitistLimit = 2L
+repairConfiguration = NULL
+capping = FALSE
+cappingAfterFirstTest = FALSE
+cappingType = "median"
+boundType = "candidate"
+boundMax = NULL
+boundDigits = 0L
+boundPar = 1L
+boundAsTimeout = TRUE
+postselection = TRUE
+aclib = FALSE
+nbIterations = 1L
+nbExperimentsPerIteration = 0L
+minNbSurvival = 0L
+nbConfigurations = 0L
+mu = 5L
+confidence = 0.95
+## end of irace scenario
+# 2026-02-11 19:07:14 CET: makeCluster initialized for 16 jobs.
+# 2026-02-11 19:07:15 CET: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 1
+# minNbSurvival: 4
+# nbParameters: 5
+# seed: 281481303
+# confidence level: 0.95
+# budget: 60
+# mu: 5
+# deterministic: FALSE
+
+# 2026-02-11 19:07:15 CET: Iteration 1 of 1
+# experimentsUsed: 0
+# remainingBudget: 60
+# currentBudget: 60
+# nbConfigurations: 10
+# 2026-02-11 19:07:15 CET: Sample 10 configurations from Sobol distribution
+# 2026-02-11 19:07:15 CET: Configurations for the race n 1 (elite configurations listed first, then new configurations):
+   .ID.  alpha max_depth learning_rate max_iter l2_regularization .PARENT.
+1     1 0.8714         4        0.2768      214            0.6941       NA
+2     2 0.3714         8        0.1318      415            1.6941       NA
+3     3 0.1214         6        0.2043      114            1.1941       NA
+4     4 0.6214        10        0.0593      314            0.1941       NA
+5     5 0.7464         5        0.0955      365            0.4441       NA
+6     6 0.2464         9        0.2405      164            1.4441       NA
+7     7 0.9964         7        0.1680      264            0.9441       NA
+8     8 0.4964         3        0.0230      465            1.9441       NA
+9     9 0.5589         3        0.2224      440            1.3191       NA
+10   10 0.0589         7        0.0774      239            0.3191       NA
+# 2026-02-11 19:07:15 CET: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         10|          2|    -489.4000000|         10|01:12:57|   NA|  NA|    NA|
+|x|          2|         10|          7|    -337.5000000|         20|00:36:30|+0.40|0.70|0.5312|
+|x|          3|         10|          7|    -266.5666667|         30|01:09:34|+0.46|0.64|0.4614|
+|x|          4|         10|          1|    -228.7500000|         40|01:09:26|+0.56|0.67|0.3729|
+|-|          5|          5|          1|    -226.0000000|         50|00:30:09|+0.15|0.32|0.6537|
+|=|          6|          5|          7|    -266.5666667|         55|00:36:20|+0.01|0.18|0.7452|
+|=|          7|          5|          7|    -294.2000000|         60|00:39:47|-0.08|0.07|0.8297|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+# Stopped because experiments for next test (65) > max experiments (60)
+Best-so-far configuration:           7    mean value:     -294.2000000
+Description of the best-so-far configuration:
+  .ID.  alpha max_depth learning_rate max_iter l2_regularization .PARENT.
+7    7 0.9964         7         0.168      264            0.9441       NA
+
+# 2026-02-12 01:02:01 CET: Extracting elites
+# 2026-02-12 01:02:01 CET: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+  .ID.  alpha max_depth learning_rate max_iter l2_regularization .PARENT. .RANK. .WEIGHT.
+7    7 0.9964         7        0.1680      264            0.9441       NA     18      0.4
+9    9 0.5589         3        0.2224      440            1.3191       NA     19      0.3
+1    1 0.8714         4        0.2768      214            0.6941       NA     21      0.2
+5    5 0.7464         5        0.0955      365            0.4441       NA     23      0.1
+# 2026-02-12 01:02:01 CET: Initialise model
+# Model:
+$alpha
+$alpha$`7`
+[1] 0.5000 0.9964
+
+$alpha$`9`
+[1] 0.5000 0.5589
+
+$alpha$`1`
+[1] 0.5000 0.8714
+
+$alpha$`5`
+[1] 0.5000 0.7464
+
+
+$max_depth
+$max_depth$`7`
+[1] 3.5 7.0
+
+$max_depth$`9`
+[1] 3.5 3.0
+
+$max_depth$`1`
+[1] 3.5 4.0
+
+$max_depth$`5`
+[1] 3.5 5.0
+
+
+$learning_rate
+$learning_rate$`7`
+[1] 0.145 0.168
+
+$learning_rate$`9`
+[1] 0.1450 0.2224
+
+$learning_rate$`1`
+[1] 0.1450 0.2768
+
+$learning_rate$`5`
+[1] 0.1450 0.0955
+
+
+$max_iter
+$max_iter$`7`
+[1] 200 264
+
+$max_iter$`9`
+[1] 200 440
+
+$max_iter$`1`
+[1] 200 214
+
+$max_iter$`5`
+[1] 200 365
+
+
+$l2_regularization
+$l2_regularization$`7`
+[1] 1.0000 0.9441
+
+$l2_regularization$`9`
+[1] 1.0000 1.3191
+
+$l2_regularization$`1`
+[1] 1.0000 0.6941
+
+$l2_regularization$`5`
+[1] 1.0000 0.4441
+
+
+# 2026-02-12 01:02:01 CET: End of iteration 1
+# 2026-02-12 01:02:01 CET: Stopped because budget is exhausted
+# Iteration: 2
+# nbIterations: 1
+# experimentsUsed: 60
+# timeUsed: 0
+# remainingBudget: 0
+# currentBudget: 60
+# number of elites: 4
+# nbConfigurations: 10
+# Total CPU user time: 3.56, CPU sys time: 3.74, Wall-clock time: 21287.07
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   alpha max_depth learning_rate max_iter l2_regularization
+7 0.9964         7        0.1680      264            0.9441
+9 0.5589         3        0.2224      440            1.3191
+1 0.8714         4        0.2768      214            0.6941
+5 0.7464         5        0.0955      365            0.4441
+# Best configurations as commandlines (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+7 --alpha 0.9964 --max_depth 7 --learning_rate 0.168 --max_iter 264 --l2_regularization 0.9441
+9 --alpha 0.5589 --max_depth 3 --learning_rate 0.2224 --max_iter 440 --l2_regularization 1.3191
+1 --alpha 0.8714 --max_depth 4 --learning_rate 0.2768 --max_iter 214 --l2_regularization 0.6941
+5 --alpha 0.7464 --max_depth 5 --learning_rate 0.0955 --max_iter 365 --l2_regularization 0.4441
+
+
+# Testing of elite configurations: 1
+# Testing iteration configurations: FALSE
+# 2026-02-12 01:02:01 CET: No test instances, skip testing
