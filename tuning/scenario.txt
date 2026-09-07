@@ -1,0 +1,7 @@
+parameterFile = "parameters.txt"
+targetRunner = "target-runner.bat"
+trainInstancesDir = "Instances"
+maxExperiments = 60
+nbIterations = 1
+logFile = "irace.log"
+debugLevel = 2

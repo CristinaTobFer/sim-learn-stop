@@ -1,0 +1,6 @@
+# Nombre Tipo Rango/Valores  (HistGradientBoostingRegressor + alpha)
+alpha                 "--alpha "                 r (0.0, 1.0)
+max_depth             "--max_depth "              i (3, 10)
+learning_rate         "--learning_rate "          r (0.01, 0.3)
+max_iter              "--max_iter "               i (100, 500)
+l2_regularization     "--l2_regularization "      r (0.0, 2.0)
